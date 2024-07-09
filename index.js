@@ -1,9 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import "./db.js";
-import movieRouter from "./routers/movie.router.js";
-import MoviesSchemaModel from "./models/movie.model.js";
-
+import { movieRouter } from "./routers/movie.router.js";
 dotenv.config();
 
 const app = express();
@@ -24,25 +22,3 @@ app.get("/", (req, res) => {
     console.log(error);
   }
 });
-
-app.get("/api", (req, res) => {
-  try {
-    return res.status(200).json({ message: "api is working " });
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.get("/api/movies/getAllMovies", async (req, res) => {
-  try {
-    const allMovies = await MoviesSchemaModel.find();
-    return res.status(200).json({ allMoviesData: allMovies });
-  } catch (error) {
-    console.error(error)
-    return res.status(500).json({
-      message: "Internal Server Error",
-    });
-  }
-});
-
-
