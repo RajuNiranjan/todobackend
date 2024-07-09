@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import "./db.js";
-import { movieRouter } from "./routers/movie.router.js";
+import movieRouter from "./routers/movie.router.js";
 dotenv.config();
 
 const app = express();
