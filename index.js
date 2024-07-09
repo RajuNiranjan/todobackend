@@ -22,3 +22,19 @@ app.get("/", (req, res) => {
     console.log(error);
   }
 });
+
+app.get("/api", (req, res) => {
+  try {
+    return res.status(200).json({ message: "api is working " });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.get("/api/movies", (req, res) => {
+  try {
+    return res.status(200).json({ message: "movies is working " });
+  } catch (error) {
+    console.log(error);
+  }
+});
